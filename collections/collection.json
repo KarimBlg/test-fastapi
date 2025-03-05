@@ -1,25 +1,20 @@
 {
 	"info": {
-		"_postman_id": "fc906449-5ecd-485c-94b7-50fadb247941",
-		"name": "1TestApi",
+		"_postman_id": "189f944e-d874-485c-9a83-32f9335da7ca",
+		"name": "test-fastapi",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33061695",
-		"_collection_link": "https://www.postman.com/bassetgueddou/workspace/testfastapi/collection/33061695-fc906449-5ecd-485c-94b7-50fadb247941?action=share&source=collection_link&creator=33061695"
+		"_exporter_id": "42585221"
 	},
 	"item": [
 		{
-			"name": "ApiPageMsgTest",
+			"name": "login page",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Verify the message in the response body\", function () {\r",
-							"    pm.expect(pm.response.json().message).to.eql(\"Hello World from continus deployment\");\r",
+							"pm.test(\"Response body has the property 'message' with value 'Login page'\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.equal('Login page');\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -28,38 +23,31 @@
 				}
 			],
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.1.84:8001/",
+					"raw": "http://192.168.1.84:8001/login",
 					"protocol": "http",
 					"host": [
 						"192.168.1.84"
 					],
 					"port": "8001",
 					"path": [
-						""
+						"login"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "loginPageTestMsg",
+			"name": "main page",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response message is 'Login page'\", function () {\r",
-							"    pm.expect(pm.response.json().message).to.equal(\"Login page\");\r",
+							"pm.test(\"Response body has the property 'message' with value\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.equal('Hello World from continus deployment');\r",
 							"});"
 						],
 						"type": "text/javascript",
@@ -68,13 +56,15 @@
 				}
 			],
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.1.84:8001/login"
+					"raw": "http://192.168.1.84:8001",
+					"protocol": "http",
+					"host": [
+						"192.168.1.84"
+					],
+					"port": "8001"
 				}
 			},
 			"response": []
